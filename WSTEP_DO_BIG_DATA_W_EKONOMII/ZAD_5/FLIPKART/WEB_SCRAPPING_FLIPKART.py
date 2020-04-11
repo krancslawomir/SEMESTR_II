@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Autor: Sławomir Kranc
+Flipkart website - web scrapping
 
 This is a base script file.
 """
