@@ -1,24 +1,17 @@
-1. SELECT COUNT(*) FROM `employees` WHERE `hire_date` < '1990-01-01'
-ODP: 68588 pracowników rozpoczęło pracę przed rokiem 1990.
+1. SELECT COUNT(*) FROM employees WHERE hire_date < '1990-01-01'
 
-2. Plik: employees.csv
+2. SELECT * FROM employees WHERE hire_date < '1990-01-01' ORDER BY hire_date DESC
+Plik: employees.csv
 
 3. SELECT COUNT(DATE_FORMAT(FROM_DAYS(DATEDIFF(CURRENT_DATE, birth_date)),'%y')) AS 'age' FROM `employees` WHERE 'age'>'50'
-ODP: 125024 (wszyscy) pracowników ma obecnie więcej niż 50 lat.
 
 4. SELECT gender, COUNT(*) as 'qty' FROM `employees` GROUP BY gender
-Mężczyn jest 74918
-Kobiet jest 50106
 
-5. SELECT COUNT(*) FROM `employees` JOIN `salaries` ON employees.emp_no = salaries.emp_no WHERE salaries.salary > 50000
-ODP: 37922 pracowników zarabia więcej niż 50 000
+5. SELECT COUNT(DISTINCT employees.emp_no) FROM employees JOIN salaries ON employees.emp_no = salaries.emp_no WHERE salaries.salary > 50000
 
-6. SELECT COUNT(*) FROM `employees` JOIN `salaries` ON employees.emp_no = salaries.emp_no WHERE salaries.salary > 60000 AND salaries.salary < 70000
-ODP: 10362 pracowników zarabia w przedziale 60 000 a 70 000
+6. SELECT COUNT(DISTINCT employees.emp_no) FROM employees JOIN salaries ON employees.emp_no = salaries.emp_no WHERE salaries.salary BETWEEN 60000 AND 70000
 
-7. SELECT COUNT(*) FROM `employees` JOIN titles ON employees.emp_no = titles.emp_no WHERE titles.title LIKE '%Senior%'
-ODP: Osób na stanowisku senior jest 46575
+7. SELECT COUNT(DISTINCT employees.emp_no) FROM employees JOIN titles ON employees.emp_no = titles.emp_no WHERE titles.title LIKE 'Senior%'
 
-8.SELECT SUBSTRING(titles.title, LOCATE('Senior', titles.title) + 7, LENGTH(titles.title)-LOCATE('Senior', titles.title)) as 'titles' FROM `employees` JOIN titles ON employees.emp_no = titles.emp_no WHERE titles.title LIKE '%Senior%'
-ODP: Dwa stanowiska, Senior Engineer oraz Senior Staff.
+8. SELECT DISTINCT titles.title FROM titles WHERE titles.title LIKE 'Senior%'
 Plik: titles.csv
