@@ -1,0 +1,17 @@
+1. SELECT DISTINCT `first_name` FROM `employees`
+2. SELECT `first_name` FROM `employees` WHERE `gender` = 'M' OR `gender` = 'F'
+3. SELECT COUNT(dept_no) AS d001 FROM dept_emp WHERE `dept_no` LIKE 'd001'
+   SELECT COUNT(dept_no) AS d003 FROM dept_emp WHERE `dept_no` LIKE 'd003'	
+4.
+5. SELECT * FROM `titles` WHERE `title` LIKE 'Engineer'
+6. Plik titles.sql
+7. SELECT * FROM `titles` WHERE `title` IS NULL 
+   SELECT * FROM `dept_emp` WHERE `dept_no` IS NULL 
+8.	
+9. SELECT * FROM `titles` WHERE `to_date` = '9999-01-01'
+10. SELECT AVG(salary) FROM salaries WHERE `to_date` = '9999-01-01'
+    SELECT MIN(salary) FROM salaries WHERE `to_date` = '9999-01-01'
+    SELECT MAX(salary) FROM salaries WHERE `to_date` = '9999-01-01'
+11. SELECT MIN(salary) AS MinSalary FROM salaries
+    SELECT MAX(salary) AS MaxSalary FROM salaries
+18. 
